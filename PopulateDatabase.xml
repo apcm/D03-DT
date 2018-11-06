@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="customer" />
+		<property name="password" value="91ec1f9324753048c0096d036a694f86" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="super" />
+		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Other domain beans come here -->	
+	
+	<!-- Endorsements -->
+	
+	<bean id="endorsement1" class="domain.Endorsement">
+		<property name="comment" value="comment1"/>
+		<property name="momment" value="01/02/2015 20:20"/>
+		<property name="endorser" ref="handyWorker1"/>
+	</bean>
+	
+	<bean id="endorsement2" class="domain.Endorsement">
+		<property name="comment" value="comment2"/>
+		<property name="momment" value="02/02/2015 20:20"/>
+		<property name="endorser" ref="handyWorker1"/>
+	</bean>
+	
+	<bean id="endorsement3" class="domain.Endorsement">
+		<property name="comment" value="comment3"/>
+		<property name="momment" value="03/02/2015 20:20"/>
+		<property name="endorser" ref="handyWorker2"/>
+	</bean>
+	
+	<bean id="endorsement4" class="domain.Endorsement">
+		<property name="comment" value="comment4"/>
+		<property name="momment" value="04/02/2015 20:20"/>
+		<property name="endorser" ref="handyWorker2"/>
+	</bean>
+	
+	<bean id="endorsement5" class="domain.Endorsement">
+		<property name="comment" value="comment5"/>
+		<property name="momment" value="05/02/2015 20:20"/>
+		<property name="endorser" ref="Customer1"/>
+	</bean>
+	
+	<bean id="endorsement6" class="domain.Endorsement">
+		<property name="comment" value="comment6"/>
+		<property name="momment" value="06/02/2015 20:20"/>
+		<property name="endorser" ref="Customer1"/>
+	</bean>
+	
+	<bean id="endorsement7" class="domain.Endorsement">
+		<property name="comment" value="comment7"/>
+		<property name="momment" value="07/02/2015 20:20"/>
+		<property name="endorser" ref="Customer2"/>
+	</bean>
+	
+	<bean id="endorsement8" class="domain.Endorsement">
+		<property name="comment" value="comment8"/>
+		<property name="momment" value="08/02/2015 20:20"/>
+		<property name="endorser" ref="Customer2"/>
+	</bean>
+	
+	
+	<!-- HANDYWORKERS-->
+	
+	<bean id="handyWorker1" class="domain.HandyWorker">
+		<property name="make" value="ExampleMake1"/>
+		
+		<property name="endorsements">
+			<list>
+				<ref bean="endorsement1"/>
+				<ref bean="endorsement2"/>
+			</list>
+		</property>
+		
+		<property name="tutorials">
+			<list>
+			<!--<ref bean="null"/>  -->
+			</list>
+		</property>
+		<property name="applications">
+			<list>
+			</list>
+		</property>
+		<property name="plannedPhases">
+			<list>
+			</list>
+		</property>
+		<property name="finders">
+			<list>
+			</list>
+		</property>
+		<property name="notes">
+			<list>
+			</list>
+		</property>
+		<property name="curriculum" value="null"/>
+		
+	</bean>
+	
+	<bean id="handyWorker2" class="domain.HandyWorker">
+		<property name="make" value="ExampleMake2"/>
+		
+		<property name="endorsements">
+			<list>
+				<ref bean="endorsement3"/>
+				<ref bean="endorsement4"/>
+			</list>
+		</property>
+		<property name="applications">
+			<list>
+			</list>
+		</property>
+		<property name="plannedPhases">
+			<list>
+			</list>
+		</property>
+		<property name="finders">
+			<list>
+			</list>
+		</property>
+		<property name="notes">
+			<list>
+			</list>
+		</property>
+		<property name="curriculum" value="null"/>
+		
+	</bean>
+	
+	<!-- CUSTOMERS -->
+	
+	<bean id="Customer1" class="domain.Customer">
+		<property name="score" value="9.0"/>
+		
+		<property name="endorsements">
+			<list>
+				<ref bean="endorsement5"/>
+				<ref bean="endorsement6"/>
+			</list>
+		</property>
+		<property name="fixuptasks">
+			<list>
+			</list>
+		</property>
+		<property name="notes">
+			<list>
+			</list>
+		</property>
+		<property name="complaints">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="Customer2" class="domain.Customer">
+		<property name="score" value="8.0"/>
+		
+		<property name="endorsements">
+			<list>
+				<ref bean="endorsement7"/>
+				<ref bean="endorsement8"/>
+			</list>
+		</property>
+		<property name="fixuptasks">
+			<list>
+			</list>
+		</property>
+		<property name="notes">
+			<list>
+			</list>
+		</property>
+		<property name="complaints">
+			<list>
+			</list>
+		</property>
+	</bean>	
+	
+</beans>
