@@ -1,0 +1,14 @@
+C4:
+select avg(a.offeredPrice), min(a.offeredPrice), max(a.offeredPrice),
+	 sqrt(sum(a.offeredPrice*a.offeredPrice)/count(a.offeredPrice)-avg(a.offeredPrice)*avg(a.offeredPrice)))
+from Application a;
+
+C5:
+select count(a)/(select(count(a) from Application a)
+from Application a
+where a.status = 'pending';
+
+C6:
+select count(a)/(select(count(a) from Application a)
+from Application a
+where a.status = 'accepted';
