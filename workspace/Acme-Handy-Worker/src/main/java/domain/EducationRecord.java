@@ -1,13 +1,6 @@
-
 package domain;
 
-import java.util.Date;
-
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import java.time.LocalDate;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
@@ -15,64 +8,58 @@ import org.hibernate.validator.constraints.URL;
 @Entity
 @Access(AccessType.PROPERTY)
 public class EducationRecord extends DomainEntity {
-
-	private String	title;
-	private String	period;
-	private String	institution;
-	private String	attachmentURL;
-	private String	comment;
-	private Date	startDate;
-	private Date	endDate;
-
+	
+	private String title;
+	private String institution;
+	private String attachmentURL;
+	private String comment;
+	private Date startDate;
+	private Date endDate;
+	
 
 	@NotBlank
 	public String getTitle() {
-		return this.title;
+		return title;
 	}
 	public void setTitle(final String title) {
 		this.title = title;
 	}
-	public String getPeriod() {
-		return this.period;
-	}
-	public void setPeriod(final String period) {
-		this.period = period;
-	}
 	@NotBlank
 	public String getInstitution() {
-		return this.institution;
+		return institution;
 	}
 	public void setInstitution(final String institution) {
 		this.institution = institution;
 	}
 	@URL
 	public String getAttachmentURL() {
-		return this.attachmentURL;
+		return attachmentURL;
 	}
 	public void setAttachmentURL(final String attachmentURL) {
 		this.attachmentURL = attachmentURL;
 	}
 	@NotBlank
 	public String getComment() {
-		return this.comment;
+		return comment;
 	}
 	public void setComment(final String comment) {
 		this.comment = comment;
 	}
 	@Temporal(TemporalType.DATE)
 	public Date getStartDate() {
-		return this.startDate;
+		return startDate;
 	}
-
+     
 	public void setStartDate(final Date startDate) {
 		this.startDate = startDate;
 	}
-	@Temporal(TemporalType.DATE)
+     @Temporal(TemporalType.DATE)
 	public Date getEndDate() {
-		return this.endDate;
+		return endDate;
 	}
 	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
 	}
+	
 
 }

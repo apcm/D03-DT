@@ -1,9 +1,6 @@
 
 package domain;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Embeddable;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 
@@ -11,7 +8,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Embeddable
 @Access(AccessType.PROPERTY)
-public class Money {
+public class Money{
 
 	public Money(final double amount, final String currency) {
 		super();
@@ -41,7 +38,7 @@ public class Money {
 		this.currency = currency;
 	}
 
-	private Money newMoney(final double amount2, final String currency2) {
+	private Money new Money(final double amount2, final String currency2) {
 		return new Money(amount2, currency2);
 	}
 

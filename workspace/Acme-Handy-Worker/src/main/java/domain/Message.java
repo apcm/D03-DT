@@ -1,17 +1,8 @@
 
 package domain;
 
-import java.util.Collection;
-import java.util.Date;
+import java.time.LocalDate;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
@@ -21,15 +12,15 @@ import org.hibernate.validator.constraints.NotBlank;
 @Access(AccessType.PROPERTY)
 public class Message extends DomainEntity {
 
-	private Date				moment;
-	private String				priority;
-	private String				tag;
-	private String				body;
-	private String				subject;
-	private boolean				flagSpam;
+	private Date	moment;
+	private String	priority;
+	private String	tag;
+	private String	body;
+	private String	subject;
+	private boolean	flagSpam;
 
-	private Actor				sender;
-	private Collection<Actor>	recipient;
+	private Actor	sender;
+	private Actor	recipient;
 
 
 	@Past
@@ -49,7 +40,6 @@ public class Message extends DomainEntity {
 		this.priority = priority;
 	}
 
-	@NotBlank
 	public String getTag() {
 		return this.tag;
 	}
@@ -78,18 +68,18 @@ public class Message extends DomainEntity {
 	public void setFlagSpam(final boolean flagSpam) {
 		this.flagSpam = flagSpam;
 	}
-	@ManyToOne(optional = false)
+	@ManyToOne(optional=false)
 	public Actor getSender() {
-		return this.sender;
+		return sender;
 	}
-	public void setSender(final Actor sender) {
+	public void setSender(Actor sender) {
 		this.sender = sender;
 	}
-	@OneToMany(cascade = CascadeType.ALL)
-	public Collection<Actor> getRecipient() {
-		return this.recipient;
+	@ManyToOne(optional=false)
+	public Actor getRecipient() {
+		return recipient;
 	}
-	public void setRecipient(final Collection<Actor> recipient) {
+	public void setRecipient(Actor recipient) {
 		this.recipient = recipient;
 	}
 

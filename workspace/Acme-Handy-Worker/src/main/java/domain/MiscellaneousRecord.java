@@ -1,9 +1,4 @@
-
 package domain;
-
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Entity;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
@@ -11,31 +6,29 @@ import org.hibernate.validator.constraints.URL;
 @Entity
 @Access(AccessType.PROPERTY)
 public class MiscellaneousRecord extends Curriculum {
-
-	private String	title;
-	private String	attachmentLink;
-	private String	comment;
-
-
+	
+	private String title;
+	private String attachmentLink;
+	private String comment;
+	
 	@NotBlank
 	public String getTitle() {
-		return this.title;
+		return title;
 	}
-	public void setTitle(final String title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 	@URL
 	public String getAttachmentLink() {
-		return this.attachmentLink;
+		return attachmentLink;
 	}
-	public void setAttachmentLink(final String attachmentLink) {
+	public void setAttachmentLink(String attachmentLink) {
 		this.attachmentLink = attachmentLink;
 	}
-	@NotBlank
 	public String getComment() {
-		return this.comment;
+		return comment;
 	}
-	public void setComment(final String comment) {
+	public void setComment(String comment) {
 		this.comment = comment;
 	}
 }
