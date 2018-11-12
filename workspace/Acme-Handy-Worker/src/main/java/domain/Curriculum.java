@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 public class Curriculum extends DomainEntity {
 
 	private String							ticker;
-	private Collection<MiscellaneousRecord>	misceullanousRecords;
+	private Collection<MiscellaneousRecord>	miscellaneousRecords;
 	private Collection<EducationRecord>		educationRecords;
 	private Collection<ProfessionalRecord>	professionalRecords;
 	private Collection<EndorserRecord>		endorserRecords;
@@ -31,11 +31,11 @@ public class Curriculum extends DomainEntity {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL)
-	public Collection<MiscellaneousRecord> getMisceullanousRecords() {
-		return this.misceullanousRecords;
+	public Collection<MiscellaneousRecord> getMiscellaneousRecords() {
+		return this.miscellaneousRecords;
 	}
-	public void setMisceullanousRecords(final Collection<MiscellaneousRecord> misceullanousRecords) {
-		this.misceullanousRecords = misceullanousRecords;
+	public void setMiscellaneousRecords(final Collection<MiscellaneousRecord> miscellaneousRecords) {
+		this.miscellaneousRecords = miscellaneousRecords;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL)

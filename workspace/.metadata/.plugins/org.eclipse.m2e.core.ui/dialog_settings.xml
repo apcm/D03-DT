@@ -52,8 +52,20 @@
 			<item value="1.0 (CleverCloud, Java+War)"/>
 		</list>
 	</section>
+	<section name="MavenModuleWizardParentPage">
+		<list key="moduleName">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+		</list>
+	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="E:\workspace\Acme-Handy-Worker"/>
 			<item value="C:\Documents and Settings\Student\Desktop\workspace\Acme-Handy-Worker"/>
 			<item value="X:\Acme-Shout-Workspace-1.18.1"/>
 			<item value="X:\Acme-Shout-Workspace-1.18.1\Acme-Certification (CleverCloud)"/>
@@ -68,21 +80,9 @@
 			<item value="E:\Templates\Templates-1.12\Sample-Project-1.12"/>
 			<item value="X:\Templates\Templates-1.12\Sample-Project"/>
 			<item value="E:\Templates\Templates-1.11\Sample-Project-1.11"/>
-			<item value="E:\Templates\Templates-1.10\Sample-Project-1.10"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="Share"/>
-			<item value="[artifactId]"/>
-			<item value="[artifactId]-TRUNK"/>
-			<item value="[artifactId]-[version]"/>
-			<item value="[groupId].[artifactId]"/>
-			<item value="[groupId].[artifactId]-[version]"/>
-		</list>
-	</section>
-	<section name="MavenModuleWizardParentPage">
-		<list key="moduleName">
-		</list>
-		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
 			<item value="[artifactId]-[version]"/>

@@ -19,7 +19,7 @@ public class Note extends Report {
 	private Date	momentNote;
 	private String	mandatoryComment;
 	private String	refereeComment;
-	private String	handWorkerComment;
+	private String	handyWorkerComment;
 
 
 	@Past
@@ -48,11 +48,11 @@ public class Note extends Report {
 	}
 
 	@NotBlank
-	public String getHandWorkerComment() {
-		return this.handWorkerComment;
+	public String getHandyWorkerComment() {
+		return this.handyWorkerComment;
 	}
 
-	public void setHandWorkerComment(final String handWorkerComment) {
-		this.handWorkerComment = handWorkerComment;
+	public void setHandyWorkerComment(final String handWorkerComment) {
+		this.handyWorkerComment = handWorkerComment;
 	}
 }
