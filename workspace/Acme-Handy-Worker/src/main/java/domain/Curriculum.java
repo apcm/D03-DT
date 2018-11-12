@@ -9,6 +9,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -22,7 +25,9 @@ public class Curriculum extends DomainEntity {
 	private Collection<PersonalRecord>		personalRecords;
 
 
+	@NotBlank
 	@Column(unique = true)
+	@Pattern(regexp = "^([0][0-9]|[1][0-9])(0[0-9]|1[0-2])(0[0-9]|[12][0-9]|3[01])-[A-Z0-9_]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}

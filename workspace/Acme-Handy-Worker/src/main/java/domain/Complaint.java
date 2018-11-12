@@ -1,6 +1,7 @@
 
 package domain;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
@@ -8,6 +9,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
@@ -16,19 +18,22 @@ import org.hibernate.validator.constraints.URL;
 @Access(AccessType.PROPERTY)
 public class Complaint extends DomainEntity {
 
-	private String	ticker;
-	private Date	moment;
-	private String	description;
-	private String	attachments;
+	private String				ticker;
+	private Date				moment;
+	private String				description;
+	private Collection<String>	attachments;
 
 
+	@NotBlank
 	@Column(unique = true)
+	@Pattern(regexp = "^([0][0-9]|[1][0-9])(0[0-9]|1[0-2])(0[0-9]|[12][0-9]|3[01])-[A-Z0-9_]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}
 	public void setTicker(final String ticker) {
 		this.ticker = ticker;
 	}
+
 	@Past
 	public Date getMoment() {
 		return this.moment;
@@ -36,6 +41,7 @@ public class Complaint extends DomainEntity {
 	public void setMoment(final Date moment) {
 		this.moment = moment;
 	}
+
 	@NotBlank
 	public String getDescription() {
 		return this.description;
@@ -43,11 +49,12 @@ public class Complaint extends DomainEntity {
 	public void setDescription(final String description) {
 		this.description = description;
 	}
+
 	@URL
-	public String getAttachments() {
+	public Collection<String> getAttachments() {
 		return this.attachments;
 	}
-	public void setAttachments(final String attachments) {
+	public void setAttachments(final Collection<String> attachments) {
 		this.attachments = attachments;
 	}
 
