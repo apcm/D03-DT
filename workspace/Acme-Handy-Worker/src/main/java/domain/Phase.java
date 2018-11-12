@@ -4,7 +4,6 @@ package domain;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.joda.time.LocalDate;
@@ -51,19 +50,6 @@ public class Phase extends DomainEntity {
 	}
 	public void setNumber(final Integer number) {
 		this.number = number;
-	}
-
-
-	//Relationships
-	private FixUpTask	fixUpTask;
-
-
-	@ManyToOne(optional = false)
-	public FixUpTask getFixUpTask() {
-		return this.fixUpTask;
-	}
-	public void setFixUpTask(final FixUpTask fixUpTask) {
-		this.fixUpTask = fixUpTask;
 	}
 
 }
