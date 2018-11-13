@@ -15,7 +15,6 @@ public class HandyWorker extends Endorser {
 
 	private String					make;
 
-	private Collection<Tutorial>	tutorials;
 	private Collection<Application>	applications;
 	private Collection<Phase>		plannedPhases;
 	private Collection<Finder>		finders;
@@ -29,15 +28,6 @@ public class HandyWorker extends Endorser {
 
 	public void setMake(final String make) {
 		this.make = make;
-	}
-
-	@OneToMany
-	public Collection<Tutorial> getTutorials() {
-		return this.tutorials;
-	}
-
-	public void setTutorials(final Collection<Tutorial> tutorials) {
-		this.tutorials = tutorials;
 	}
 
 	@OneToMany
