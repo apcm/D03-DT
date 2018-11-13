@@ -2,6 +2,7 @@
 package domain;
 
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -11,14 +12,13 @@ import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
-import org.joda.time.LocalDate;
 
 @Entity
 @Access(AccessType.PROPERTY)
 public class Tutorial extends DomainEntity {
 
 	private String				title;
-	private LocalDate			lastUpdate;
+	private Date				lastUpdate;
 	private String				summary;
 	private String				photoURL;
 	private Collection<Section>	sections;
@@ -33,10 +33,10 @@ public class Tutorial extends DomainEntity {
 	}
 
 	@Past
-	public LocalDate getLastUpdate() {
+	public Date getLastUpdate() {
 		return this.lastUpdate;
 	}
-	public void setLastUpdate(final LocalDate lastUpdate) {
+	public void setLastUpdate(final Date lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
 

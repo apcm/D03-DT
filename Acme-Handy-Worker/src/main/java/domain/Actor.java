@@ -9,8 +9,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.URL;
 
 import security.UserAccount;
 
@@ -23,9 +26,12 @@ public abstract class Actor extends DomainEntity {
 	private String	phoneNumber;
 	private String	address;
 	private boolean	ban;
+	private String	middleName;
+	private String	surname;
+	private String	photoURL;
 
 
-	//@NotBlank
+	@NotBlank
 	public String getName() {
 		return this.name;
 	}
@@ -41,6 +47,7 @@ public abstract class Actor extends DomainEntity {
 		this.email = email;
 	}
 
+	//@Pattern(regexp=Pattern.List{Pattern(^\+\d{1,3} \(\d{1,3}\) \d{4,}$), Pattern(^\+\d{1,3} \d{4,}$), Pattern(^\d{4,}$)})
 	public String getPhoneNumber() {
 		return this.phoneNumber;
 	}
@@ -48,7 +55,7 @@ public abstract class Actor extends DomainEntity {
 		this.phoneNumber = phoneNumber;
 	}
 
-	//@NotBlank
+	@NotBlank
 	public String getAddress() {
 		return this.address;
 	}
@@ -61,6 +68,29 @@ public abstract class Actor extends DomainEntity {
 	}
 	public void setBan(final boolean ban) {
 		this.ban = ban;
+	}
+
+	public String getMiddleName() {
+		return this.middleName;
+	}
+	public void setMiddleName(final String middleName) {
+		this.middleName = middleName;
+	}
+
+	@NotBlank
+	public String getSurname() {
+		return this.surname;
+	}
+	public void setSurname(final String surname) {
+		this.surname = surname;
+	}
+
+	@URL
+	public String getPhotoURL() {
+		return this.photoURL;
+	}
+	public void setPhotoURL(final String photoURL) {
+		this.photoURL = photoURL;
 	}
 
 
@@ -81,24 +111,13 @@ public abstract class Actor extends DomainEntity {
 	private UserAccount	userAccount;
 
 
+	@Valid
 	@OneToOne(cascade = CascadeType.ALL)
 	public UserAccount getUserAccount() {
 		return this.userAccount;
 	}
 	public void setUserAccount(final UserAccount userAccount) {
 		this.userAccount = userAccount;
-	}
-
-
-	private Collection<Message>	messages;
-
-
-	@OneToMany
-	public Collection<Message> getMessages() {
-		return this.messages;
-	}
-	public void setMessages(final Collection<Message> messages) {
-		this.messages = messages;
 	}
 
 

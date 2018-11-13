@@ -12,8 +12,8 @@ import javax.persistence.OneToMany;
 @Access(AccessType.PROPERTY)
 public class Referee extends Actor {
 
-	private Collection<Note>		notes;
-	private Collection<Complaint>	complaints;
+	private Collection<Note>	notes;
+	private Collection<Report>	reports;
 
 
 	@OneToMany
@@ -23,12 +23,14 @@ public class Referee extends Actor {
 	public void setNotes(final Collection<Note> notes) {
 		this.notes = notes;
 	}
+
 	@OneToMany
-	public Collection<Complaint> getComplaints() {
-		return this.complaints;
+	public Collection<Report> getReports() {
+		return this.reports;
 	}
-	public void setComplaints(final Collection<Complaint> complaints) {
-		this.complaints = complaints;
+
+	public void setReports(final Collection<Report> reports) {
+		this.reports = reports;
 	}
 
 }

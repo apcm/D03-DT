@@ -36,10 +36,10 @@ public class EndorserRecord extends DomainEntity {
 	}
 
 	//@Pattern(regexp = Pattern("^\+\d{1,3} \(\d{1,3}\) \d{4,}$)|(^\+\d{1,3} \d{4,}$)|(^\d{4,}$"))
-	public String getPhoneNumer() {
+	public String getPhoneNumber() {
 		return this.phoneNumber;
 	}
-	public void setPhoneNumer(final String phoneNumber) {
+	public void setPhoneNumber(final String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	@URL
@@ -49,7 +49,6 @@ public class EndorserRecord extends DomainEntity {
 	public void setLinkedInURL(final String linkedInURL) {
 		this.linkedInURL = linkedInURL;
 	}
-	@NotBlank
 	public String getComment() {
 		return this.comment;
 	}

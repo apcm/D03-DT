@@ -10,9 +10,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -30,11 +33,10 @@ public class FixUpTask extends DomainEntity {
 
 
 	@Column(unique = true)
-	//@Pattern(regexp="^([0]\d|[1][0-9])(0[0-9]|1[0-2])(0\d|[12]\d|3[01])-[A-Z0-9_]{6}$")
+	@Pattern(regexp = "^([0][0-9]|[1][0-9])(0[0-9]|1[0-2])(0[0-9]|[12][0-9]|3[01])-[A-Z0-9_]{6}$")
 	public String getTicker() {
 		return this.ticker;
 	}
-
 	public void setTicker(final String ticker) {
 		this.ticker = ticker;
 	}
@@ -60,16 +62,7 @@ public class FixUpTask extends DomainEntity {
 	public void setAdress(final String adress) {
 		this.adress = adress;
 	}
-	/*
-	 * @AttributeOverrides({
-	 * 
-	 * @AttributeOverride(name="amount",
-	 * column=@Column(name="maximumAmount")),
-	 * 
-	 * @AttributeOverride(name="currency",
-	 * column=@Column(name="maximumCurrency"))
-	 * })
-	 */
+	@Valid
 	public Money getMaximumPrice() {
 		return this.maximumPrice;
 	}
@@ -95,19 +88,13 @@ public class FixUpTask extends DomainEntity {
 
 
 	//Relationships
-	private Collection<Application>	application;
 	private Category				category;
 	private Collection<Warranty>	warranty;
+	private Collection<Phase>		phases;
+	private Complaint				complaint;
 
 
-	@OneToMany
-	//(mappedBy="loquesea")
-	public Collection<Application> getApplication() {
-		return this.application;
-	}
-	public void setApplication(final Collection<Application> application) {
-		this.application = application;
-	}
+	@Valid
 	@ManyToOne(optional = false)
 	public Category getCategory() {
 		return this.category;
@@ -122,5 +109,20 @@ public class FixUpTask extends DomainEntity {
 	public void setWarranty(final Collection<Warranty> warranty) {
 		this.warranty = warranty;
 	}
+	@OneToMany
+	public Collection<Phase> getPhases() {
+		return this.phases;
+	}
+	public void setPhases(final Collection<Phase> phases) {
+		this.phases = phases;
+	}
 
+	@Valid
+	@OneToOne(optional = true)
+	public Complaint getComplaint() {
+		return this.complaint;
+	}
+	public void setComplaint(final Complaint complaint) {
+		this.complaint = complaint;
+	}
 }

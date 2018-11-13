@@ -17,7 +17,6 @@ import org.hibernate.validator.constraints.URL;
 public class EducationRecord extends DomainEntity {
 
 	private String	title;
-	private String	period;
 	private String	institution;
 	private String	attachmentURL;
 	private String	comment;
@@ -31,12 +30,6 @@ public class EducationRecord extends DomainEntity {
 	}
 	public void setTitle(final String title) {
 		this.title = title;
-	}
-	public String getPeriod() {
-		return this.period;
-	}
-	public void setPeriod(final String period) {
-		this.period = period;
 	}
 	@NotBlank
 	public String getInstitution() {

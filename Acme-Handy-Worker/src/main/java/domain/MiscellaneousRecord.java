@@ -31,7 +31,6 @@ public class MiscellaneousRecord extends Curriculum {
 	public void setAttachmentLink(final String attachmentLink) {
 		this.attachmentLink = attachmentLink;
 	}
-	@NotBlank
 	public String getComment() {
 		return this.comment;
 	}

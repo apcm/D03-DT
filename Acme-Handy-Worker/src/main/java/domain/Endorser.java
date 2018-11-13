@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 public class Endorser extends Actor {
 
 	private Collection<Endorsement>	endorsements;
+	private int						score;
 
 
 	@OneToMany
@@ -22,6 +23,14 @@ public class Endorser extends Actor {
 
 	public void setEndorsements(final Collection<Endorsement> endorsements) {
 		this.endorsements = endorsements;
+	}
+
+	public int getScore() {
+		return this.score;
+	}
+
+	public void setScore(final int score) {
+		this.score = score;
 	}
 
 }

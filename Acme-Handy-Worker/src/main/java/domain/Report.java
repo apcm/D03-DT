@@ -6,7 +6,6 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -47,7 +46,7 @@ public class Report extends DomainEntity {
 		this.attachments = attachments;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany
 	public Collection<Note> getNotes() {
 		return this.notes;
 	}
@@ -57,7 +56,7 @@ public class Report extends DomainEntity {
 
 
 	//Relationships
-	private Complaint	complaint;
+	private Complaint complaint;
 
 
 	@OneToOne(optional = false)

@@ -15,8 +15,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 @Entity
 @Access(AccessType.PROPERTY)
 public class Finder extends DomainEntity {
@@ -30,14 +28,12 @@ public class Finder extends DomainEntity {
 	private double	warranty;
 
 
-	@NotBlank
 	public String getKeyWord() {
 		return this.keyWord;
 	}
 	public void setKeyWord(final String keyWord) {
 		this.keyWord = keyWord;
 	}
-	@NotBlank
 	public String getCategory() {
 		return this.category;
 	}
@@ -53,20 +49,24 @@ public class Finder extends DomainEntity {
 	public void setMinPrice(final Money minPrice) {
 		this.minPrice = minPrice;
 	}
+
+	@AttributeOverrides({
+		@AttributeOverride(name = "amount", column = @Column(name = "maximumAmount")), @AttributeOverride(name = "currency", column = @Column(name = "maximumCurrency"))
+	})
 	public Money getMaxPrice() {
 		return this.maxPrice;
 	}
 	public void setMaxPrice(final Money maxPrice) {
 		this.maxPrice = maxPrice;
 	}
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	public Date getStartDate() {
 		return this.startDate;
 	}
 	public void setStartDate(final Date startDate) {
 		this.startDate = startDate;
 	}
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	public Date getEndDate() {
 		return this.endDate;
 	}

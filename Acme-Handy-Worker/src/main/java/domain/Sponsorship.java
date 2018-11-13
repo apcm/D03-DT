@@ -4,6 +4,7 @@ package domain;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.URL;
 
@@ -31,7 +32,7 @@ public class Sponsorship extends DomainEntity {
 	public void setPageURL(final String pageURL) {
 		this.pageURL = pageURL;
 	}
-
+	@Valid
 	public CreditCard getCreditCard() {
 		return this.creditCard;
 	}

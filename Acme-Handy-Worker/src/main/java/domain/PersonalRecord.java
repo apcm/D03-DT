@@ -42,7 +42,7 @@ public class PersonalRecord extends DomainEntity {
 		this.email = email;
 	}
 
-	//@Patter(regexp = Pattern("^\+\d{1,3} \(\d{1,3}\) \d{4,}$)|(^\+\d{1,3} \d{4,}$)|(^\d{4,}$"))
+	//	@Pattern(regexp = Pattern("(^\+[0-9]{1,3} \([0-9]{1,3}\) [0-9]{4,}$)|(^\+[0-9]{1,3} \d{4,}$)|(^[0-9]{4,}$)")
 	public String getPhoneNumber() {
 		return this.phoneNumber;
 	}
