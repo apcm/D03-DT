@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	<!-- UserAccounts -->
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="referee1" />
+		<property name="password" value="4f200dd50f7bcac8a64683b771700afb" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="REFEREE" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount7" class="security.UserAccount">
+		<property name="username" value="referee2" />
+		<property name="password" value="4f556d5a66f4fe0d058523a7b8e19d91" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="REFEREE" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Referees without References-->
+	<bean id="referee1" class="domain.Referee">
+		<property name="name" value="Eefje"/>
+		<property name="email" value="sjokz@email.com"/>
+		<property name="phoneNumber" value="678913234"/>
+		<property name="address" value="Run Street"/>
+		<property name="ban" value="false"/>
+		<property name="middleName" value="Sjokz"/>
+		<property name="surname" value="Depoortere"/>
+		<property name="photoURL" value="http://www.exampleph2.com"/>
+		<property name="userAccount" ref="userAccount5"/>
+	</bean>
+	
+	<bean id="referee2" class="domain.Referee">
+		<property name="name" value="Ibai"/>
+		<property name="email" value="lvpibai@email.com"/>
+		<property name="phoneNumber" value="612344214"/>
+		<property name="address" value="Barcelona"/>
+		<property name="ban" value="false"/>
+		<property name="middleName" value="LVPIbai"/>
+		<property name="surname" value="Llanos"/>
+		<property name="photoURL" value="http://www.exampleph6.com"/>
+		<property name="userAccount" ref="userAccount7"/>
+	</bean>
+
+<!-- Reports -->
+	<bean id="report1" class="domain.Report">
+		<property name="moment" value="15/08/2018"/>
+		<property name="description" value="About painting"/>
+		<property name="attachments" value="http://www.doc23.com"/>
+		<property name="notes">
+			<list>
+				<!-- <ref bean="note1"/> -->
+			</list>
+		</property>
+		<property name="complaint" ref=""/>
+	</bean>
+	<bean id="report2" class="domain.Report">
+		<property name="moment" value="16/08/2018"/>
+		<property name="description" value="Door fix"/>
+		<property name="attachments" value="http://www.doc231.com"/>
+		<property name="notes">
+			<list>
+				<!-- <ref bean="note1"/> -->
+			</list>
+		</property>
+		<property name="complaint" ref=""/>
+	</bean>
+	<bean id="report3" class="domain.Report">
+		<property name="moment" value="17/08/2018"/>
+		<property name="description" value="Windows"/>
+		<property name="attachments" value="http://www.doc234.com"/>
+		<property name="notes">
+			<list>
+				<!-- <ref bean="note1"/> -->
+			</list>
+		</property>
+		<property name="complaint" ref=""/>
+	</bean>
+	<bean id="report4" class="domain.Report">
+		<property name="moment" value="18/08/2018"/>
+		<property name="description" value="Gas"/>
+		<property name="attachments" value="http://www.doc21.com"/>
+		<property name="notes">
+			<list>
+				<!-- <ref bean="note1"/> -->
+			</list>
+		</property>
+		<property name="complaint" ref=""/>
+	</bean>
+	<bean id="report5" class="domain.Report">
+		<property name="moment" value="20/08/2018"/>
+		<property name="description" value="Fridge problems"/>
+		<property name="attachments" value="http://www.doc278.com"/>
+		<property name="notes">
+			<list>
+				<!-- <ref bean="note1"/> -->
+			</list>
+		</property>
+		<property name="complaint" ref=""/>
+	</bean>
+	
+<!-- Notes -->
+	<bean id="note1" class="domain.Note">
+		<property name="moment" value="16/08/2018"/>
+		<property name="mandatoryComment" value="MandatoryComment"/>
+		<property name="refereeComment" value=""/>
+		<property name="handyWorkerComment" value=""/>
+		<property name="customerComment" value=""/>
+		<property name="customer" ref=""/>
+		<property name="referee" ref=""/>
+		<property name="handyWorker" ref =""/>
+	</bean>
+	
+	<bean id="note2" class="domain.Note">
+		<property name="moment" value="17/08/2018"/>
+		<property name="mandatoryComment" value="MandatoryComment"/>
+		<property name="refereeComment" value=""/>
+		<property name="handyWorkerComment" value=""/>
+		<property name="customerComment" value=""/>
+		<property name="customer" ref=""/>
+		<property name="referee" ref=""/>
+		<property name="handyWorker" ref =""/>
+	</bean>
+	
+	<bean id="note3" class="domain.Note">
+		<property name="moment" value="19/08/2018"/>
+		<property name="mandatoryComment" value="MandatoryComment"/>
+		<property name="refereeComment" value=""/>
+		<property name="handyWorkerComment" value=""/>
+		<property name="customerComment" value=""/>
+		<property name="customer" ref=""/>
+		<property name="referee" ref=""/>
+		<property name="handyWorker" ref =""/>
+	</bean>
+	
+	<bean id="note4" class="domain.Note">
+		<property name="moment" value="18/08/2018"/>
+		<property name="mandatoryComment" value="MandatoryComment"/>
+		<property name="refereeComment" value=""/>
+		<property name="handyWorkerComment" value=""/>
+		<property name="customerComment" value=""/>
+		<property name="customer" ref=""/>
+		<property name="referee" ref=""/>
+		<property name="handyWorker" ref =""/>
+	</bean>
+	
+	<bean id="note5" class="domain.Note">
+		<property name="moment" value="20/08/2018"/>
+		<property name="mandatoryComment" value="MandatoryComment"/>
+		<property name="refereeComment" value=""/>
+		<property name="handyWorkerComment" value=""/>
+		<property name="customerComment" value=""/>
+		<property name="customer" ref=""/>
+		<property name="referee" ref=""/>
+		<property name="handyWorker" ref =""/>
+	</bean>
+
+<!-- Complaints -->
+	<bean id="complaint1" class="domain.Complaint">
+		<property name="ticker" value="081209-TQRC8"/>
+		<property name="moment" value="15/08/2018"/>
+		<property name="description" value="Problems"/>
+		<property name="attachments" value="http://attach1.com"/>
+	</bean>
+	
+	<bean id="complaint2" class="domain.Complaint">
+		<property name="ticker" value="081209-123EW"/>
+		<property name="moment" value="16/08/2018"/>
+		<property name="description" value="Problems"/>
+		<property name="attachments" value="http://attach2.com"/>
+	</bean>
+	
+	<bean id="complaint3" class="domain.Complaint">
+		<property name="ticker" value="081209-AY29E"/>
+		<property name="moment" value="17/08/2018"/>
+		<property name="description" value="Problems"/>
+		<property name="attachments" value="http://attach3.com"/>
+	</bean>
+	
+	<bean id="complaint4" class="domain.Complaint">
+		<property name="ticker" value="081209-HU88E"/>
+		<property name="moment" value="18/08/2018"/>
+		<property name="description" value="Problems"/>
+		<property name="attachments" value="http://attach4.com"/>
+	</bean>
+	
+	<bean id="complaint5" class="domain.Complaint">
+		<property name="ticker" value="081209-A712D"/>
+		<property name="moment" value="20/08/2018"/>
+		<property name="description" value="Problems"/>
+		<property name="attachments" value="http://attach5.com"/>
+	</bean>
+	
+<!-- Category -->
+	<bean id="category0" class="domain.Category">
+		<property name="name" value="CATEGORY"/>
+		<property name="parentCategory" ref="category0"/>
+	</bean>
+	
+	<bean id="category1" class="domain.Category">
+		<property name="name" value="Madera"/>
+		<property name="parentCategory" ref="category0"/>
+	</bean>
+	
+	<bean id="category2" class="domain.Category">
+		<property name="name" value="Puertas"/>
+		<property name="parentCategory" ref="category1"/>
+	</bean>
+	
+	<bean id="category3" class="domain.Category">
+		<property name="name" value="Pintura"/>
+		<property name="parentCategory" ref="category0"/>
+	</bean>
+	
+	<bean id="category4" class="domain.Category">
+		<property name="name" value="Marcos"/>
+		<property name="parentCategory" ref="category1"/>
+	</bean>
+
+
+<!-- CreditCards -->
+	<bean id="cc1" class="domain.CreditCard">
+		<property name="holderName" value="Jesús Manzano"/>
+		<property name="brandName" value="MasterCard"/>
+		<property name="number" value="1234432167898888"/>
+		<property name="expirationMonth" value="12"/>
+		<property name="expirationYear" value="21"/>
+		<property name="cvv" value="289"/>
+	</bean>
+	
+	<bean id="cc2" class="domain.CreditCard">
+		<property name="holderName" value="Sergio Moreno"/>
+		<property name="brandName" value="Visa"/>
+		<property name="number" value="9998888900010002"/>
+		<property name="expirationMonth" value="6"/>
+		<property name="expirationYear" value="22"/>
+		<property name="cvv" value="781"/>
+	</bean>
+	
+	<bean id="cc1" class="domain.CreditCard">
+		<property name="holderName" value="Domingo Pardo"/>
+		<property name="brandName" value="MasterCard"/>
+		<property name="number" value="7898665643431212"/>
+		<property name="expirationMonth" value="3"/>
+		<property name="expirationYear" value="23"/>
+		<property name="cvv" value="452"/>
+	</bean>
+	
+</beans>	
