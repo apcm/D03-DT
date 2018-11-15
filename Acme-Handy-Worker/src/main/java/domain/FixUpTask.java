@@ -26,7 +26,7 @@ public class FixUpTask extends DomainEntity {
 	private String	ticker;
 	private Date	moment;
 	private String	description;
-	private String	adress;
+	private String	address;
 	private Money	maximumPrice;
 	private Date	startDate;
 	private Date	endDate;
@@ -56,11 +56,11 @@ public class FixUpTask extends DomainEntity {
 		this.description = description;
 	}
 	@NotBlank
-	public String getAdress() {
-		return this.adress;
+	public String getAddress() {
+		return this.address;
 	}
-	public void setAdress(final String adress) {
-		this.adress = adress;
+	public void setAddress(final String address) {
+		this.address = address;
 	}
 	@Valid
 	public Money getMaximumPrice() {

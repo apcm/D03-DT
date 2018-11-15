@@ -48,6 +48,7 @@ public abstract class Actor extends DomainEntity {
 	}
 
 	//@Pattern(regexp=Pattern.List{Pattern(^\+\d{1,3} \(\d{1,3}\) \d{4,}$), Pattern(^\+\d{1,3} \d{4,}$), Pattern(^\d{4,}$)})
+
 	public String getPhoneNumber() {
 		return this.phoneNumber;
 	}

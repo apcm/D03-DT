@@ -21,6 +21,10 @@ public class CreditCard {
 	private int		CVV;
 
 
+	public CreditCard() {
+
+	}
+
 	@NotBlank
 	public String getHolderName() {
 		return this.holderName;

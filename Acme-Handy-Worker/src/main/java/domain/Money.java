@@ -19,6 +19,10 @@ public class Money {
 		this.currency = currency;
 	}
 
+	public Money() {
+
+	}
+
 
 	private double	amount;
 	private String	currency;
